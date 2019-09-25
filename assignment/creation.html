@@ -1,0 +1,100 @@
+<html>
+    <head>
+
+        <title>Palm Tree</title>
+
+        <nav class="navbar navbar-expand-sm bg-light navbar-light">
+            <ul class="navbar-nav">
+                <img class='logo' src='img/logo.png' width='60' height='60'>
+                <li><h3><b>PALM TREE</b></h3></li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="login.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="creation.html">Create Listing</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="manage.html">Manage Listings</a>
+                  </li>
+            </ul>
+        </nav>
+              
+        <style>
+        
+        li {
+            padding-left: 20px;
+            padding-top: 12px;
+        }
+        
+        </style>
+
+        <div class="scripts">
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        </div>
+          
+    </head>
+
+    <body>
+
+<div class="container">
+
+    <h3 style="margin-top: 20px;">Vehicle Make and Model</h3>
+    <h6>Describe the make and model of your vehicle.</h6>
+    <form action="/action_page.php">
+        <div class="form-group">
+          <input type="email" class="form-control" id="email" placeholder="e.g. Ford Falcon 2011" style="margin-top: 20px;">
+        </div>
+      </form>
+
+    <h3 style="margin-top: 20px;">Image Upload</h3>
+    <h6>Upload an image of your vehicle.</h6>
+    <form>
+        <div class="custom-file" style="margin-top: 10px;">
+                <input type="file" class="custom-file-input" id="customFile">
+                <label class="custom-file-label" for="customFile">Choose file</label>
+         </div>
+    </form>
+
+    <h3 style="margin-top: 20px;">Asking Price</h3>
+    <h6>Provide the asking price for your vehicle.</h6>
+    <div class="form-group">
+            <input type="text" class="form-control" id="usr" placeholder="$49,999">
+    </div>
+
+    <h3 style="margin-top: 20px;">Description</h3>
+    <h6>Describe your vehicle in detail.</h6>
+    <div class="form-group" style="margin-top: 10px;">
+            <label for="comment"></label>
+            <textarea class="form-control" rows="5" id="comment"></textarea>
+    </div>
+
+    <h3 style="margin-top: 20px;">Key Features</h3>
+    <h6>Provide a list of key features your vehicle has.</h6>
+    <div>
+    <input type="text" class="form-control form-control-sm" style="margin-top: 15px;" placeholder="e.g. Five Star Ancap Safety Rating">
+    <input type="text" class="form-control form-control-sm" style="margin-top: 15px;" placeholder="e.g. Unlimted Kilometre Warranty">
+    <input type="text" class="form-control form-control-sm" style="margin-top: 15px;" placeholder="e.g. Bluetooth and Phone Connectivity">
+    <input type="text" class="form-control form-control-sm" style="margin-top: 15px;" placeholder="e.g. Full Service History">
+    <input type="text" class="form-control form-control-sm" style="margin-top: 15px; margin-bottom: 30px;">
+    </div>
+
+    <a href="submit.html" type="button" class="btn btn-primary btn-block" style="margin-bottom: 50px;">Submit Vehicle Listing</a>
+
+</div>
+    </body>
+
+    <footer class="page-footer font-small blue">
+        <nav class="navbar navbar-expand-sm bg-light navbar-light">
+            <div class="footer-copyright text-center py-3" style="margin-left: 600px;">© 2018 Copyright:
+              <a href="https://www.google.com.au/?gws_rd=ssl"> Palm Tree Enterprises</a>
+            </div>
+            <!-- Copyright -->
+        </nav>
+    </footer>
+
+</html>
