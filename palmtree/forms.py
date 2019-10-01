@@ -27,3 +27,13 @@ class RegisterForm(FlaskForm):
     confirm = PasswordField("Confirm Password")
     # submit button
     submit = SubmitField("Register")
+
+
+class carForm(FlaskForm):
+    carID = StringField('CarID', validators=[InputRequired()])
+    userID = StringField('UserID', validators=[InputRequired()])
+    listingTitle = StringField('Listing Title', validators=[InputRequired()])
+    carMake = StringField('Car Make', validators=[InputRequired()])
+    picture = StringField('Car Image', validators=[InputRequired()])
+    price = StringField('Price', validators=[InputRequired()])
+    submit = SubmitField("Create")
