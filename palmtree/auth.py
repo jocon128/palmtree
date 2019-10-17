@@ -30,7 +30,6 @@ def login():
         elif not check_password_hash(user.password_hash, password):
             error = 'Incorrect password'
         if error is None:
-            print(user)
             # all good, set the login_user
             login_user(user)
             return redirect(url_for('main.index'))
