@@ -1,8 +1,10 @@
-from flask import Blueprint
+from flask import Blueprint,render_template
+from flask import request,session
+from .models import carDetails
 
 bp = Blueprint('main', __name__)
 
 
 @bp.route('/')
 def index():
-    return '<h1>Homepage<h1>'
+    return render_template('index.html')
