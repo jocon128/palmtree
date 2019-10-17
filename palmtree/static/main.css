@@ -15,6 +15,22 @@ body {
   margin: 0;
 }
 
+#logo {
+  color: black;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+}
+
+.control-label {
+  display: none;
+}
+
+#logo h3 {
+  display: inline;
+  margin-left: 5px;
+}
+
 #login .container #login-row #login-column #login-box {
   margin-top: 120px;
   max-width: 600px;

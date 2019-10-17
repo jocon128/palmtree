@@ -2,6 +2,7 @@
 from flask_wtf import FlaskForm
 from wtforms.fields import SubmitField, StringField, PasswordField
 from wtforms.validators import InputRequired, Email, EqualTo
+from wtforms.widgets import TextArea
 
 # creates the login information
 
@@ -29,11 +30,9 @@ class RegisterForm(FlaskForm):
     submit = SubmitField("Register")
 
 
-class carForm(FlaskForm):
-    carID = StringField('CarID', validators=[InputRequired()])
-    userID = StringField('UserID', validators=[InputRequired()])
-    listingTitle = StringField('Listing Title', validators=[InputRequired()])
+class ListingForm(FlaskForm):
     carMake = StringField('Car Make', validators=[InputRequired()])
+    description = StringField('description', widget=TextArea())
     picture = StringField('Car Image', validators=[InputRequired()])
     price = StringField('Price', validators=[InputRequired()])
     submit = SubmitField("Create")

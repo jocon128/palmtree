@@ -1,0 +1,100 @@
+{% extends 'base.html' %} {% import "bootstrap/wtf.html" as wtf %} {% block
+content %}
+<div class="container">
+  <!-- Flash messages -->
+  <!-- first get the messages so use with-->
+  {% with messages = get_flashed_messages() %} {% if messages %}
+  <!-- check if there are any messages -->
+  <div class="container">
+    <div class="row mt-3 mb-3">
+      <div class="col-md-12">
+        {% for message in messages %}
+        <!--loop through the messages-->
+        <div class="alert alert-success">{{ message }}</div>
+        <!--display as alert-->
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endif %} {% endwith %}
+
+  <body>
+    <div class="container">
+      <h3 style="margin-top: 20px;">Vehicle Make and Model</h3>
+      <h6>Describe the make and model of your vehicle.</h6>
+      <form action="/action_page.php">
+                {{ wtf.form_field(form.carMake, class='form-control', placeholder='Ford Falcon 2011') }}
+        
+      <h3 style="margin-top: 20px;">Image Upload</h3>
+      <h6>Upload an image of your vehicle.</h6>
+      <!-- <form>
+        <div class="custom-file" style="margin-top: 10px;">
+          <input type="file" class="custom-file-input" id="customFile" />
+          <label class="custom-file-label" for="customFile">Choose file</label>
+        </div>
+      </form> -->
+
+      <h3 style="margin-top: 20px;">Asking Price</h3>
+      <h6>Provide the asking price for your vehicle.</h6>
+
+      <div class="form-group">
+        {{ wtf.form_field(form.price, class='form-control', placeholder='$49,999') }}
+
+      </div>
+
+      <h3 style="margin-top: 20px;">Description</h3>
+      <h6>Describe your vehicle in detail.</h6>
+      <div class="form-group" style="margin-top: 10px;">
+            {{ wtf.form_field(form.description, class='form-control', cols="35", rows="10") }}
+
+      </div>
+
+      <h3 style="margin-top: 20px;">Key Features</h3>
+      <h6>Provide a list of key features your vehicle has.</h6>
+      <div>
+        <input
+          type="text"
+          class="form-control form-control-sm"
+          style="margin-top: 15px;"
+          placeholder="e.g. Five Star Ancap Safety Rating"
+        />
+        <input
+          type="text"
+          class="form-control form-control-sm"
+          style="margin-top: 15px;"
+          placeholder="e.g. Unlimted Kilometre Warranty"
+        />
+        <input
+          type="text"
+          class="form-control form-control-sm"
+          style="margin-top: 15px;"
+          placeholder="e.g. Bluetooth and Phone Connectivity"
+        />
+        <input
+          type="text"
+          class="form-control form-control-sm"
+          style="margin-top: 15px;"
+          placeholder="e.g. Full Service History"
+        />
+        <input
+          type="text"
+          class="form-control form-control-sm"
+          style="margin-top: 15px; margin-bottom: 30px;"
+        />
+      </form>
+
+      </div>
+
+
+      <a
+        href="submit.html"
+        type="button"
+        class="btn btn-primary btn-block"
+        style="margin-bottom: 50px;"
+        >Submit Vehicle Listing</a
+      >
+    </div>
+  </body>
+</div>
+
+{% endblock %}

@@ -43,6 +43,9 @@ def create_app():
     from . import views
     app.register_blueprint(views.bp)
 
+    from . import listings
+    app.register_blueprint(listings.bp)
+
     from . import auth
     app.register_blueprint(auth.bp)
 

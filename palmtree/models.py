@@ -16,3 +16,15 @@ class User(db.Model, UserMixin):
 
     def __repr__(self):
         return "<Name: {}, ID: {}>".format(self.userName, self.userID)
+
+
+class Listing(db.Model):
+    __tablename__ = 'Car'
+    carID = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(80))
+    description = db.Column(db.String(200))
+    image = db.Column(db.String(400))
+    currency = db.Column(db.String(3))
+
+    def __repr__(self):  # string print method
+        return "<Name: {}>".format(self.carMake)

@@ -1,0 +1,58 @@
+{% extends 'base.html' %} {% block content %}
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4" style="margin-top: 30px">
+        <h2>{{ listing.carMake }}</h2>
+        <h5>Posted by goldielocks</h5>
+        <img
+          src="img/hyundaii30.jpg"
+          style="height: 250px; width: 120%; margin-top: 20px"
+          class="rounded"
+        />
+        <br />
+        <h6 style="margin-top:30px;">Asking price:</h6>
+        <h2 class="text-success">$22,500 - $27,999</h2>
+        <h4 style="margin-top:30px;">Key Features</h4>
+        <p style="margin-top: 15px;">+ 5 star Ancap Safety Rating</p>
+        <p>+ Unlimted Kilometre Warranty</p>
+      </div>
+
+      <div class="col-sm-4" style="margin-top: 150px; margin-left: 60px;">
+        <h6>Current bid:</h6>
+        <h4 class="text-success">$30,999</h4>
+        <h6 class="text-warning" style="border-bottom: 1px solid darkgrey;">
+          Last offer made 14/09
+        </h6>
+        <form action="/action_page.php">
+          <div class="form-group">
+            <label for="amount">Make an Offer</label>
+            <input
+              type="text"
+              class="form-control"
+              id="bid"
+              placeholder="e.g. $45,300.00"
+            />
+          </div>
+          <a href="bid.html" type="submit" class="btn btn-primary">Submit</a>
+        </form>
+        <h5 style="margin-top: 40px;">Description</h5>
+        <p>
+          Up for sale is this 2014 Hyundai i30 SE with an automatic
+          transmission. One female owner with only 68,000kms on the odometer.
+          Comes complete with a full service history and all original books.
+          Comes with RWC and registration till February 2020
+        </p>
+
+        <p>
+          It has USB audio input, central locking, bluetooth technology and
+          front cup holders. Finally this hyundai i30 hatch has 16" alloy
+          wheels, rear parking sensors, iPod connectivity, front & rear power
+          windows, cruise control and storage compartment in centre console.
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+
+{% endblock %}
