@@ -5,15 +5,18 @@ from . import db
 from .models import Listing, User
 from .forms import ListingForm
 from flask_login import login_required
-# from . import db
 
 # create a blueprint
 bp = Blueprint('listing', __name__, url_prefix='/listings')
 
-# #create a page that will show the details fo the destination
+# #create a page that will show the details of the car
 @bp.route('/<id>')
 def show(id):
-    listing = Listing.query.filter_by(id=id).first()
+    listing = Listing.query.filter_by(carID=id).first()
+    print("Start")
+    print(listing)  # Gets listing matching id from db
+    print("End")
+    # Passes through to html template
     return render_template('listings/show.html', listing=listing)
 
 

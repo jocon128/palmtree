@@ -1,10 +1,12 @@
 from flask import Blueprint, render_template
 from flask import request, session
-# from .models import carDetails
+from .models import Listing
+
 
 bp = Blueprint('main', __name__)
 
 
 @bp.route('/')
 def index():
-    return render_template('index.html')
+    listing = Listing.query.all()
+    return render_template('index.html', listings=listing)
