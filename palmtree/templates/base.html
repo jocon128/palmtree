@@ -1,6 +1,7 @@
 <html>
   <head>
     <title>Palmtree</title>
+    <link rel="stylesheet" href="../static/normalize.css">
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
@@ -25,27 +26,24 @@
           
         </a>
         
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="creation.html">Create Listing</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="manage.html">Manage Listings</a>
-        </li> -->
       </ul>
       {% if current_user.is_authenticated %}
-      <ul class="navbar-nav">
-          <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+      <ul class="col-md-6 mx-auto text-center">
+          <input class="form-control" type="text" placeholder="What're you searching for?" aria-label="Search">
       </ul>
+      <ul class="col-sm-2text-center">
+        <button type="submit" class="btn btn-primary rounded-pill btn-block shadow-sm">Search</button>
+      </ul>
+
       <ul class="navbar-nav">
 
           <li class="nav-item">
               <a class="nav-link" style="display: flex;" href="/manage"> <i class="material-icons">
                   person
-                  </i> {{ current_user.userName }}!</a>                          
-              
+                  </i> {{ current_user.username }}</a>        
             </li>
           <li class="nav-item">
-              <a class="nav-link" href="/create">Create Listing</a>
+              <a class="nav-link" href="/listings/create">Create Listing</a>
             </li>
           <li class="nav-item">
               <a class="nav-link" href="/manage">Manage Listings</a>              
@@ -64,11 +62,6 @@
 {% endif %}
      
     </nav>
-    <!-- Header -->
-    <header class="bg-light border-bottom">
-      {% block header %} {% endblock %}
-    </header>
-
     {% block content %} {% endblock %}
 
     <footer class="page-footer font-small blue">

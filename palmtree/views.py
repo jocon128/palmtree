@@ -8,5 +8,5 @@ bp = Blueprint('main', __name__)
 
 @bp.route('/')
 def index():
-    listing = Listing.query.all()
-    return render_template('index.html', listings=listing)
+    listings = Listing.query.all()
+    return render_template('index.html', listings=listings)

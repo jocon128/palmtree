@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+<!-- need to include this for bootstrap to render-->
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <p class="alert-info">{{ message }}</li>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+
+    <body scroll="no" style="overflow: hidden">
+
+      <div class="login">
+          <div class="jumbotron" style="background-color: rgb(240, 240, 240); border-radius: 0px;">
+              <h1 style="padding-top: 75px; padding-left: 30px;">Palm Tree™</h1>
+              <p style=" padding-left: 30px;">
+                The #1 car selling and buying site on the web. Get involved. You don't want to miss this.
+              </p>
+          </div>
+          <div id="login">
+
+              <div style="padding: 20px;">
+                {{wtf.quick_form(form)}}
+              </div>
+              <!-- When you have login form, then do show the user a link to register -->
+{% if heading|lower =='login' %}
+<div class="col-md-4">
+    <p>New user? <a href="{{ url_for('auth.register') }}">Click here to register</a>.</p>
+</div>
+{% endif %}
+          </div>
+      </div>
+  </div>
+    </body>
+{% endblock %}

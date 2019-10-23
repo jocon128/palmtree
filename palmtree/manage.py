@@ -22,7 +22,7 @@ def manage():
     print('Method type: ', request.method)
     listing = Listing.query.filter_by(carID=1).first()
     if(form.validate_on_submit()):
-        carMake = form.carMake.data
+
 
     return render_template('manage.html', form=form, listing=listing)
 
