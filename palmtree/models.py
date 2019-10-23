@@ -21,10 +21,11 @@ class User(db.Model, UserMixin):
 class Listing(db.Model):
     __tablename__ = 'Car'
     carID = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(80))
-    description = db.Column(db.String(200))
-    image = db.Column(db.String(400))
-    currency = db.Column(db.String(3))
-
+    userID= db.Column(db.Integer, db.ForeignKey('hotels.id'))
+    listingTitle = db.Column(db.String(250))
+    carMake = db.Column(db.String(250))
+    picture = db.Column(db.String(250))
+    price = db.Column(db.String(10))
+    
     def __repr__(self):  # string print method
         return "<Name: {}>".format(self.carMake)
