@@ -20,9 +20,18 @@ def manage():
     form = ListingForm()
     listing = Listing.query.all()
     print('Method type: ', request.method)
-    listing = Listing.query.filter_by(carID=1).first()
-    if(form.validate_on_submit()):
+    listing = Listing.query.filter_by(id=1).first()
+    if request.method == "POST":
+        
+        listing.title = form.title.data
 
+        listing.description = form.description.data
+
+        listing.price = form.price.data
+
+        listing.category = form.category.data
+
+        db.session.commit()
 
     return render_template('manage.html', form=form, listing=listing)
 

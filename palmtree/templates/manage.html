@@ -16,16 +16,16 @@
 
   <div class="row">
     <div class="col-sm-2">
-      <img src="" alt="car image">
+      <img src="{{listing.image}}" alt="car image">
    </div>
     <div class="col-sm-2">
-      <h4>{{listing.listingTitle}}</h4>
+      <h4>{{listing.title}}</h4>
     </div>
   </div>
 
   <div class="row">
     <div class="col-sm-6">
-      <h6>{{listing.carMake}}</h6>
+      <h6>{{listing.description}}</h6>
     </div>
     <div class="col-sm-2">
       <h6 class="text-success">{{listing.price}}</h6>
@@ -51,11 +51,17 @@
             <div class="container">
                 <h3 style="margin-top: 20px;">Vehicle Make and Model</h3>
                 <h6>Describe the make and model of your vehicle.</h6>
-                <form action="/action_page.php">
-                          {{ wtf.form_field(form.carMake, class='form-control', placeholder='Ford Falcon 2011') }}
+                <form action="" method="POST" role="form">
+                          {{ wtf.form_field(form.title, class='form-control', placeholder='Ford Falcon 2011') }}
                   
                 <h3 style="margin-top: 20px;">Image Upload</h3>
                 <h6>Upload an image of your vehicle.</h6>
+          
+                <h3 style="margin-top: 20px;">Category</h3>
+                <div class="form-group" style="margin-top: 10px;">
+                      {{ wtf.form_field(form.category, class='form-control') }}
+          
+                </div>
                 <!-- <form>
                   <div class="custom-file" style="margin-top: 10px;">
                     <input type="file" class="custom-file-input" id="customFile" />
@@ -78,20 +84,14 @@
           
                 </div>
           
-                <h3 style="margin-top: 20px;">Key Features</h3>
-                <h6>Provide a list of key features your vehicle has.</h6>
-                <div>
-                  
+                
+                  <button
+                  type="submit"
+                  class="btn btn-primary btn-block"
+                  style="margin-bottom: 50px;"
+                  >Submit Vehicle Listing</button
+                >
                 </form>
-        </div>
-        <div class="modal-footer">
-            <a
-            href="/manage"
-            type="button"
-            class="btn btn-primary btn-block"
-            style="margin-bottom: 50px;"
-            >Submit Vehicle Listing</a
-          >
         </div>
       </div>
     </div>
