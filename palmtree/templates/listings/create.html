@@ -22,11 +22,17 @@ content %}
     <div class="container">
       <h3 style="margin-top: 20px;">Vehicle Make and Model</h3>
       <h6>Describe the make and model of your vehicle.</h6>
-      <form action="/action_page.php">
-                {{ wtf.form_field(form.carMake, class='form-control', placeholder='Ford Falcon 2011') }}
+      <form action="" method="POST" role="form">
+                {{ wtf.form_field(form.title, class='form-control', placeholder='Ford Falcon 2011') }}
         
       <h3 style="margin-top: 20px;">Image Upload</h3>
       <h6>Upload an image of your vehicle.</h6>
+
+      <h3 style="margin-top: 20px;">Category</h3>
+      <div class="form-group" style="margin-top: 10px;">
+            {{ wtf.form_field(form.category, class='form-control') }}
+
+      </div>
       <!-- <form>
         <div class="custom-file" style="margin-top: 10px;">
           <input type="file" class="custom-file-input" id="customFile" />
@@ -49,50 +55,19 @@ content %}
 
       </div>
 
-      <h3 style="margin-top: 20px;">Key Features</h3>
-      <h6>Provide a list of key features your vehicle has.</h6>
-      <div>
-        <input
-          type="text"
-          class="form-control form-control-sm"
-          style="margin-top: 15px;"
-          placeholder="e.g. Five Star Ancap Safety Rating"
-        />
-        <input
-          type="text"
-          class="form-control form-control-sm"
-          style="margin-top: 15px;"
-          placeholder="e.g. Unlimted Kilometre Warranty"
-        />
-        <input
-          type="text"
-          class="form-control form-control-sm"
-          style="margin-top: 15px;"
-          placeholder="e.g. Bluetooth and Phone Connectivity"
-        />
-        <input
-          type="text"
-          class="form-control form-control-sm"
-          style="margin-top: 15px;"
-          placeholder="e.g. Full Service History"
-        />
-        <input
-          type="text"
-          class="form-control form-control-sm"
-          style="margin-top: 15px; margin-bottom: 30px;"
-        />
+      
+        <button
+        type="submit"
+        class="btn btn-primary btn-block"
+        style="margin-bottom: 50px;"
+        >Submit Vehicle Listing</button
+      >
       </form>
 
       </div>
 
 
-      <a
-        href="submit.html"
-        type="button"
-        class="btn btn-primary btn-block"
-        style="margin-bottom: 50px;"
-        >Submit Vehicle Listing</a
-      >
+      
     </div>
   </body>
 </div>
