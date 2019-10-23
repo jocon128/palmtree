@@ -27,8 +27,8 @@
   <div class="card mb-5 mr-5 px-0 col-md-3">
       <img class="card-img-top" height="200rem" src="{{listing.picture}}" alt="{{listing.listingTitle}}">
       <div class="card-body">
-        <h5 class="card-title">{{listing.listingTitle}}</h5>
-        <p class="card-text">{{listing.carMake}}</p>
+        <h5 class="card-title">{{listing.title}}</h5>
+        <p class="card-text">{{listing.category}}</p>
         <a href="{{url_for('listing.show', id=listing.carID)}}" class="btn btn-danger">View Details</a>
         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
       </div>

@@ -12,10 +12,7 @@ bp = Blueprint('listing', __name__, url_prefix='/listings')
 # #create a page that will show the details of the car
 @bp.route('/<id>')
 def show(id):
-    listing = Listing.query.filter_by(carID=id).first()
-    print("Start")
-    print(listing)  # Gets listing matching id from db
-    print("End")
+    listing = Listing.query.filter_by(id=id).first()
     # Passes through to html template
     return render_template('listings/show.html', listing=listing)
 
