@@ -49,4 +49,7 @@ def create_app():
     from . import auth
     app.register_blueprint(auth.bp)
 
+    from . import manage
+    app.register_blueprint(manage.bp)
+
     return app
