@@ -1,8 +1,7 @@
 
 from flask_wtf import FlaskForm
-from wtforms.fields import SubmitField, StringField, PasswordField
-from wtforms.validators import InputRequired, Email, EqualTo
-from wtforms.widgets import TextArea
+from wtforms.fields import TextAreaField, SubmitField, StringField, PasswordField
+from wtforms.validators import InputRequired, Length, Email, EqualTo
 
 # creates the login information
 
@@ -23,16 +22,19 @@ class RegisterForm(FlaskForm):
                         Email("Please enter a valid email")])
 
     # linking two fields - password should be equal to data entered in confirm
-    password = PasswordField("Password", validators=[InputRequired(),
-                                                     EqualTo('confirm', message="Passwords should match")])
-    confirm = PasswordField("Confirm Password")
+    password = PasswordField('Password', validators=[InputRequired()])
+    # validator to check if the user entry is equal to password
+    confirm = PasswordField('Confirm Password', validators=[
+                            EqualTo('password', message='Password\'s must match')])
     # submit button
     submit = SubmitField("Register")
 
 
 class ListingForm(FlaskForm):
-    carMake = StringField('Car Make', validators=[InputRequired()])
-    description = StringField('description', widget=TextArea())
-    picture = StringField('Car Image', validators=[InputRequired()])
+    title = StringField('Title', validators=[InputRequired()])
+    description = TextAreaField('Description',
+                                validators=[InputRequired(), Length(min=10, max=200)])
+    image = StringField('Image', validators=[InputRequired()])
+    category = StringField('Category', validators=[InputRequired()])
     price = StringField('Price', validators=[InputRequired()])
     submit = SubmitField("Create")
