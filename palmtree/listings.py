@@ -3,16 +3,19 @@ from flask import (
 )
 from .models import Listing, User
 from .forms import ListingForm
-# from . import db
+from . import db
 
 # create a blueprint
 bp = Blueprint('listing', __name__, url_prefix='/listings')
 
-# #create a page that will show the details fo the destination
+# #create a page that will show the details of the car
 @bp.route('/<id>')
 def show(id):
-    listing = Listing.query.filter_by(id=id).first()
-    return render_template('listings/show.html', listing=listing)
+    listing = Listing.query.filter_by(carID=id).first()
+    print("Start")
+    print(listing)  # Gets listing matching id from db
+    print("End")
+    return render_template('listings/show.html', listing=listing) # Passes through to html template
 
 
 @bp.route('/create', methods=['GET', 'POST'])
