@@ -1,0 +1,1 @@
+web: gunicorn -w 2 'palmtree:create_app()'
