@@ -29,19 +29,29 @@
       </ul>
       {% if current_user.is_authenticated %}
       <ul class="col-md-5 text-center">
-        <form class="form-inline d-flex flex-nowrap">
-          <select class="form-control col-md-12 mx-auto text-center" id="list" accesskey="target">
-            <option value='none' selected>Select any category..</option>
+            <form class="form-inline d-flex flex-nowrap">
+                <select class="form-control col-md-12 mx-auto text-center" id="list" accesskey="target">
+                    <option value='none' selected>Select any category..</option>
                     <option value='accord.html'>Honda</option>
                     <option value='jeep.html'>Jeep</option>
                     <option value='hyundai.html'>Hyundai</option>
                     <option value='hilux.html'>Hilux</option>
                     <option value='chev.html'>Chevrolet</option>
-                    <option value='ranger.html'>Ranger</option>  
-          </select>
-          <button type="button" class="btn btn-primary" value="Go" onclick="goToNewPage()">Search</button>
-        </form>
-      </ul>
+                    <option value='raner.html'>Ranger</option>
+                </select>
+                <button type="button" class="btn btn-primary" value="Go" onclick="goToNewPage()">Search</button>
+            </form>
+
+            <script type="text/javascript">
+                 function goToNewPage()
+                {
+                    var url = document.getElementById('list').value;
+                    if(url != 'none') {
+                    window.location = url;
+                }
+                } 
+             </script>
+        </ul>
       <ul class="navbar-nav">
 
           <li class="nav-item">
