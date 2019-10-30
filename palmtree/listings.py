@@ -5,6 +5,8 @@ from . import db
 from .models import Listing, User, Bid
 from .forms import ListingForm
 from flask_login import login_required, current_user
+from datetime import datetime
+
 
 # create a blueprint
 bp = Blueprint('listing', __name__, url_prefix='/listings')
@@ -24,10 +26,12 @@ def create():
     print('Method type: ', request.method)
     if request.method == 'POST':
         print("test")
+        # datetime object containing current date and time
+        now = datetime.now().isoformat()
         listing = Listing(title=form.title.data,
                           description=form.description.data,
                           image=form.image.data,
-                          price=form.price.data, category=form.category.data)
+                          price=form.price.data, category=form.category.data, created_at=now)
 
         db.session.add(listing)
         db.session.commit()

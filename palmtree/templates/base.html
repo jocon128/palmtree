@@ -19,6 +19,12 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    {{
+      moment.include_jquery()
+    }}
+    {{
+      moment.include_moment()
+    }}
     <!-- Main Styles -->
     <link rel="stylesheet" href="../static/main.css" />
   </head>
@@ -133,5 +139,10 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script>
+      var timestamps = document.querySelectorAll(".time");
+      timestamps = moment.fromNow();
+    </script>
   </body>
 </html>

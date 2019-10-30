@@ -18,8 +18,8 @@
       <img
         class="card-img-top"
         height="200rem"
-        src="{{ listing.picture }}"
-        alt="{{ listing.listingTitle }}"
+        src="{{ listing.image }}"
+        alt="{{ listing.title }}"
       />
       <div class="card-body">
         <h5 class="card-title">{{ listing.title }}</h5>
@@ -30,7 +30,11 @@
           >View Details</a
         >
         <p class="card-text">
-          <small class="text-muted">Last updated 3 mins ago</small>
+          <small class="text-muted">
+            {% if listing.created_at %}
+            {{ moment().format(listing.created_at) }}
+            {% endif %}
+          </small>
         </p>
       </div>
     </div>

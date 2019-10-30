@@ -3,6 +3,7 @@ from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+from flask_moment import Moment
 import os
 
 db = SQLAlchemy()
@@ -13,6 +14,9 @@ db = SQLAlchemy()
 
 def page_not_found(e):
     return render_template('404.html'), 404
+
+
+moment = Moment()
 
 
 def create_app():
@@ -26,6 +30,7 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///palmtree.sqlite'
     # initialize db with flask app
     db.init_app(app)
+    moment.init_app(app)
 
     bootstrap = Bootstrap(app)
 
