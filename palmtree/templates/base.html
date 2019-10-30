@@ -79,15 +79,17 @@
             </a>
 
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="#">Manage Lisitngs</a>
+              <a class="dropdown-item" href="/manage">Manage Lisitngs</a>
               <a class="dropdown-item" href="/logout">Logout</a>
             </div>
           </div>
         </li>
         <li>
-          <i class="material-icons">
-            add_box
-          </i>
+          <a href="/listings/create">
+            <i style="font-size: 2rem;" class="material-icons">
+              add_box
+            </i>
+          </a>
         </li>
       </ul>
       {% else %}
@@ -109,9 +111,7 @@
       <div class="bg-light text-center" style="width:100%;">
         <div class="footer-copyright py-3">
           © 2019 Copyright:
-          <a href="https://www.google.com.au/?gws_rd=ssl">
-            Palm Tree Enterprises</a
-          >
+          <a href="google.com">Palm Tree Enterprises</a>
         </div>
         <!-- Copyright -->
       </div>

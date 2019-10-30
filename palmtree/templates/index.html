@@ -1,163 +1,45 @@
-{% extends 'base.html' %} {% block header %}
+{% extends 'base.html' %} {% block content %}
 
-<head>
-  <title>Palm Tree</title>
-</head>
-
-{% endblock %} {% block content %}
-
-<body>
-  <img
-    src="https://www.brandcouponmall.com/wp-content/uploads/2019/01/Automotive-Industrial.jpg"
-    alt="Los Angeles"
-    style="width:100%; height:45%;"
-  />
-  <div class="jumbotron">
-    <div class="container-fluid">
-      <h1>Popular Listings</h1>
-      <p>
-        Browse the best-selling models on Palm Tree to find the best deal for
-        you.
-      </p>
-    </div>
+<img
+  src="https://www.brandcouponmall.com/wp-content/uploads/2019/01/Automotive-Industrial.jpg"
+  alt="Los Angeles"
+  style="width:100%; height:45%;"
+/>
+<div class="jumbotron">
+  <div class="container-fluid">
+    <h1>Popular Listings</h1>
+    <p>
+      Browse the best-selling models on Palm Tree to find the best deal for you.
+    </p>
   </div>
+</div>
 
-  {% if listings %}
+{% if listings %}
+<div class="container">
   <div class="row justify-content-center">
-  {% for listing in listings %}
-  <div class="card mb-5 mr-5 px-0 col-md-3">
-      <img class="card-img-top" height="200rem" src="{{listing.picture}}" alt="{{listing.listingTitle}}">
+    {% for listing in listings %}
+    <div class="card mb-5 mr-5 px-0 col-md-3">
+      <img
+        class="card-img-top"
+        height="200rem"
+        src="{{ listing.picture }}"
+        alt="{{ listing.listingTitle }}"
+      />
       <div class="card-body">
-        <h5 class="card-title">{{listing.title}}</h5>
-        <p class="card-text">{{listing.category}}</p>
-        <a href="{{url_for('listing.show', id=listing.id)}}" class="btn btn-danger">View Details</a>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <h5 class="card-title">{{ listing.title }}</h5>
+        <p class="card-text">{{ listing.category }}</p>
+        <a
+          href="{{url_for('listing.show', id=listing.id)}}"
+          class="btn btn-danger"
+          >View Details</a
+        >
+        <p class="card-text">
+          <small class="text-muted">Last updated 3 mins ago</small>
+        </p>
       </div>
     </div>
     {% endfor %}
-    </div>
-    
-    {% endif %}
   </div>
-
 </div>
-{% endblock %}
 
-  <!-- <div class="row">
-    <div class="col-sm-4">
-      <div
-        class="card"
-        style="width:400px; margin-left: 60px; margin-top: 30px;"
-      >
-        <img
-          class="card-img-top"
-          src="https://miro.medium.com/max/3840/1*Eatot7FGwFhvOpxk5TY9nA.jpeg"
-          alt="Card image"
-        />
-        <div class="card-body">
-          <h4 class="card-title">Ford Ranger</h4>
-          <p class="card-text">View all Ford Ranger Listings</p>
-          <a href="ranger.html" class="btn btn-primary">See Now</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-4">
-      <div
-        class="card"
-        style="width:400px; margin-top: 30px; margin-left: 40px"
-      >
-        <img
-          class="card-img-top"
-          src="https://t1-cms-2.images.toyota-europe.com/toyotaone/eeet/toyota-hilux-2016-gallery-01-full_tcm-3019-1673118.jpg"
-          alt="Card image"
-        />
-        <div class="card-body">
-          <h4 class="card-title">Toyota Hilux</h4>
-          <p class="card-text">View all Toyota Hilux Listings</p>
-          <a href="hilux.html" class="btn btn-primary">See Now</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-4">
-      <div
-        class="card"
-        style="width:400px; margin-left:20px; margin-top: 30px;"
-      >
-        <img
-          class="card-img-top"
-          src="https://tveassetsprod.blob.core.windows.net/editorial/2017/07/hyundai-i30-n-2018-02.jpg"
-          alt="Card image"
-        />
-        <div class="card-body">
-          <h4 class="card-title">Hyundai i30</h4>
-          <p class="card-text">View all Hyundai i30 Listings</p>
-          <a href="hyundai.html" class="btn btn-primary">See Now</a>
-        </div>
-      </div>
-    </div>
-
-    <style></style>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-4">
-      <div
-        class="card"
-        style="width:400px; margin-left: 60px; margin-top: 30px;"
-      >
-        <img
-          class="card-img-top"
-          src="https://famous-wallpapers.com/files/114407-3000x2000-car-jeep-jeep-grand-cherokee-luxury-car-off-road-rock-suv-silver-car-vehicle.jpg"
-          alt="Card image"
-        />
-        <div class="card-body">
-          <h4 class="card-title">Jeep Cherokee</h4>
-          <p class="card-text">View all Jeep Cherokee Listings</p>
-          <a href="jeep.html" class="btn btn-primary">See Now</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-4">
-      <div
-        class="card"
-        style="width:400px; margin-top: 30px; margin-left: 40px"
-      >
-        <img
-          class="card-img-top"
-          src="https://images.wallpaperscraft.com/image/honda_accord_touring_side_view_108160_3840x2400.jpg"
-          alt="Card image"
-        />
-        <div class="card-body">
-          <h4 class="card-title">Honda Accord</h4>
-          <p class="card-text">View all Honda Accord Listings</p>
-          <a href="accord.html" class="btn btn-primary">See Now</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-4">
-      <div
-        class="card"
-        style="width:400px; margin-left:20px; margin-top: 30px;"
-      >
-        <img
-          class="card-img-top"
-          src="http://cxproject2015.org/wp-content/uploads/2018/11/2020-chevrolet-equinox-new-2018-chevy-equinox-2-0-turbo-2020-chevrolet-equinox-2-0t-beautiful-of-2020-chevrolet-equinox.jpg"
-          alt="Card image"
-        />
-        <div class="card-body">
-          <h4 class="card-title">Chevrolet Equinox</h4>
-          <p class="card-text">View all Chevrolet Equinox Listings</p>
-          <a href="chev.html" class="btn btn-primary">See Now</a>
-        </div>
-      </div>
-    </div>
-
-    <style></style>
-  </div>
-</body> -->
-
-
+{% endif %} {% endblock %}

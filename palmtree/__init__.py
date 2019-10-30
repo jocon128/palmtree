@@ -1,5 +1,5 @@
 # import flask - from the package import class
-from flask import Flask
+from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
@@ -11,10 +11,15 @@ db = SQLAlchemy()
 # a web server will run this web application
 
 
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+
 def create_app():
 
     # this is the name of the module/package that is calling this app
     app = Flask(__name__)
+    app.register_error_handler(404, page_not_found)
     app.debug = True
     app.secret_key = 'utroutoru'
     # set the app configuration data

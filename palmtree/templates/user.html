@@ -5,16 +5,7 @@
 
 {% block content %}
 
-{% with messages = get_flashed_messages() %}
-  {% if messages %}
-    {% for message in messages %}
-      <p class="alert-info">{{ message }}</li>
-    {% endfor %}
-  {% endif %}
-{% endwith %}
-
-
-    <body scroll="no" style="overflow: hidden">
+    <body>
 
       <div class="login">
           <div class="jumbotron" style="background-color: rgb(240, 240, 240); border-radius: 0px;">
@@ -26,6 +17,15 @@
           <div id="login">
 
               <div style="padding: 20px;">
+                  {% with messages = get_flashed_messages() %}
+                  {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-danger" role="alert">
+                        {{message}}
+                      </div>
+                    {% endfor %}
+                  {% endif %}
+                {% endwith %}
                 {{wtf.quick_form(form)}}
               </div>
               <!-- When you have login form, then do show the user a link to register -->
