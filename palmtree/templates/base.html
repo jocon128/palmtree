@@ -1,81 +1,112 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Palmtree</title>
-    <link rel="stylesheet" href="../static/normalize.css">
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="../static/normalize.css" />
+    <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
       integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
       crossorigin="anonymous"
     />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-    <link rel="stylesheet" href="../static/main.css">
+    <!-- Materail Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="../static/main.css" />
   </head>
   <body>
-    <nav class="navbar navbar-expand-sm bg-#e3f2fd navbar-light justify-content-between">
+    <!-- Navbar Start -->
+    <nav
+      class="navbar navbar-expand-sm bg-#e3f2fd navbar-light justify-content-between"
+    >
       <ul class="navbar-nav">
         <a id="logo" href="/">
-            <img 
-            src="../static/imgs/logo.png"
-            width="40"
-            height="40"
-          />
-          
-            <h3>PALMTREE</h3>
-          
+          <img src="../static/imgs/logo.png" width="40" height="40" />
+          <h3>PALMTREE</h3>
         </a>
-        
       </ul>
       {% if current_user.is_authenticated %}
       <ul class="col-md-5 text-center">
         <form class="form-inline d-flex flex-nowrap">
-          <select class="form-control col-md-12 mx-auto text-center" id="list" accesskey="target">
-            <option value='none' selected>Select any category..</option>
-                    <option value='accord.html'>Honda</option>
-                    <option value='jeep.html'>Jeep</option>
-                    <option value='hyundai.html'>Hyundai</option>
-                    <option value='hilux.html'>Hilux</option>
-                    <option value='chev.html'>Chevrolet</option>
-                    <option value='ranger.html'>Ranger</option>  
+          <select
+            class="form-control col-md-12 mx-auto text-center"
+            id="list"
+            accesskey="target"
+          >
+            <option value="none" selected>Select any category..</option>
+            <option value="accord.html">Honda</option>
+            <option value="jeep.html">Jeep</option>
+            <option value="hyundai.html">Hyundai</option>
+            <option value="hilux.html">Hilux</option>
+            <option value="chev.html">Chevrolet</option>
+            <option value="ranger.html">Ranger</option>
           </select>
-          <button type="button" class="btn btn-primary" value="Go" onclick="goToNewPage()">Search</button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            value="Go"
+            onclick="goToNewPage()"
+          >
+            Search
+          </button>
         </form>
       </ul>
       <ul class="navbar-nav">
+        <li class="nav-item">
+          <div class="dropdown show profile">
+            <a
+              class="dropdown-toggle"
+              href="#"
+              role="button"
+              id="dropdownMenuLink"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <i class="material-icons">
+                person
+              </i>
+              Hey,
+              {{ current_user.username }}
+            </a>
 
-          <li class="nav-item">
-              <a class="nav-link" style="display: flex;" href="/manage"> <i class="material-icons">
-                  person
-                  </i> {{ current_user.username }}</a>        
-            </li>
-          <li class="nav-item">
-              <a class="nav-link" href="/listings/create">Create Listing</a>
-            </li>
-          <li class="nav-item">
-              <a class="nav-link" href="/manage" >Manage Listings</a>              
-            </li>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="#">Manage Lisitngs</a>
+              <a class="dropdown-item" href="/logout">Logout</a>
+            </div>
+          </div>
+        </li>
+        <li>
+          <i class="material-icons">
+            add_box
+          </i>
+        </li>
       </ul>
-      {% else  %}
+      {% else %}
       <ul class="navbar-nav">
-          <li class="nav-item">
-              <a class="nav-link" href="/login">Login</a>
-            </li>
-          <li class="nav-item">
-              <a class="nav-link" href="/register ">Register</a>
-            </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/register ">Register</a>
+        </li>
       </ul>
-  
-{% endif %}
-     
+      {% endif %}
     </nav>
+    <!-- Navbar End -->
     {% block content %} {% endblock %}
 
+    <!-- Footer Start -->
     <footer class="page-footer font-small blue">
-      <div
-        class="bg-light text-center"
-        style="width:100%;"
-      >
+      <div class="bg-light text-center" style="width:100%;">
         <div class="footer-copyright py-3">
           © 2019 Copyright:
           <a href="https://www.google.com.au/?gws_rd=ssl">
@@ -83,9 +114,9 @@
           >
         </div>
         <!-- Copyright -->
-      </nav>
+      </div>
     </footer>
-
+    <!-- Footer End -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

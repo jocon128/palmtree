@@ -15,14 +15,31 @@ body {
   margin: 0;
 }
 
+.profile a {
+  color: black;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.profile a::after {
+  margin-left: 5px;
+}
+
+.profile i {
+  margin-right: 5px;
+}
+
+.profile .dropdown-toggle {
+  padding: 0 10px;
+}
+
 #logo {
   color: black;
   text-decoration: none;
   display: flex;
   justify-content: center;
 }
-
-
 
 #logo h3 {
   display: inline;
@@ -36,15 +53,11 @@ body {
   border: 1px solid #9c9c9c;
   background-color: #eaeaea;
 }
+
 #login .container #login-row #login-column #login-box #login-form {
   padding: 20px;
 }
-#login
-  .container
-  #login-row
-  #login-column
-  #login-box
-  #login-form
-  #register-link {
+
+#login .container #login-row #login-column #login-box #login-form #register-link {
   margin-top: -85px;
 }
