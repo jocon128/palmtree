@@ -2,9 +2,11 @@ from flask import (
     Blueprint, flash, render_template, request, url_for, redirect
 )
 from . import db
-from .models import Listing, User
+from .models import Listing, User, Bid
 from .forms import ListingForm
-from flask_login import login_required
+from flask_login import login_required, current_user
+from datetime import datetime
+
 
 # create a blueprint
 bp = Blueprint('listing', __name__, url_prefix='/listings')
@@ -24,10 +26,12 @@ def create():
     print('Method type: ', request.method)
     if request.method == 'POST':
         print("test")
+        # datetime object containing current date and time
+        now = datetime.now().isoformat()
         listing = Listing(title=form.title.data,
                           description=form.description.data,
                           image=form.image.data,
-                          price=form.price.data, category=form.category.data)
+                          price=form.price.data, category=form.category.data, created_at=now)
 
         db.session.add(listing)
         db.session.commit()
@@ -36,21 +40,14 @@ def create():
     return render_template('listings/create.html', form=form)
 
 
-# @bp.route('/<destination>/comment', methods=['GET', 'POST'])
-# def comment(destination):
-#     form = CommentForm()
-#     # get the destination object associated to the page and the comment
-#     destination_obj = Destination.query.filter_by(id=destination).first()
-#     if form.validate_on_submit():
-#         # read the comment from the form
-#         comment = Comment(text=form.text.data,
-#                           destination=destination_obj)
-#         # here the back-referencing works - comment.destination is set
-#         # and the link is created
-#         db.session.add(comment)
-#         db.session.commit()
+@bp.route('/<listing>/bid', methods=['GET', 'POST'])
+def bid(listing):
+    bid = Bid(listing_id=listing, bidder_id=current_user.userID)
 
-#         # flashing a message which needs to be handled by the html
-#         print('Your comment has been added', 'success')
-#     # using redirect sends a GET request to destination.show
-#     return redirect(url_for('destination.show', id=destination))
+    db.session.add(bid)
+    db.session.commit()
+
+    # flashing a message which needs to be handled by the html
+    print('Your bid has been submitted', 'success')
+    # using redirect sends a GET request to destination.show
+    return redirect(url_for('listing.show', id=listing))

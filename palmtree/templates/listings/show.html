@@ -6,13 +6,11 @@
     <div class="row mt-5 mb-3">  
       <div class="col-md-12">  
         <div class="float-left">  
-          <h1 class="mb-0">{{listing.listingTitle}}</h1>  
-          <p>Popular Destination</p>  
+          <h1 class="mb-0">{{listing.title}}</h1>  
         </div>  
  
         <div class="float-right text-right">  
-          <p class="mb-0">1 AUD equals</p>  
-          <h2 id="exchange-rate">{{listing.price}}</h1>  
+          <h2 id="exchange-rate">{{ "${:,.2f}".format(listing.price|float) }}</h1>  
         </div>  
       </div>  
     </div>  
@@ -23,75 +21,17 @@
         <div class="card my-3">  
           <div class="card-body">  
             <div class="media">  
-              <img class="align-self-start mr-3" src="{{listing.picture}}" alt="Rome, Italy" style="max-width: 250px;">  
+              <img class="align-self-start mr-3" src="{{listing.image}}" alt="Listing Picture" style="max-width: 250px;">  
               <div class="media-body">  
-                <small class="font-weight-bold text-muted">Stay 2 nights</small>  
-                <h5 class="mt-0">{{listing.listingTitle}}</h5>  
-                <p>{{listing.carMake}}</p>  
-                <a href="#" class="btn btn-danger">Book Now</a>  
+                <p>{{listing.description}}</p>  
+                <a href="#" class="btn btn-danger">Bid</a>  
               </div>  
             </div>  
           </div>  
         </div>  
       </div>  
-    </div> 
+    </div>
+    </div>  
 
 {% endblock %}
 
-
-<!-- <body>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-4" style="margin-top: 30px">
-        <h2>{{ listing.carMake }}</h2>
-        <h5>Posted by {{listing.userID}}</h5>
-        <img
-          src="{{listing.picture}}"
-          style="height: 250px; width: 120%; margin-top: 20px"
-          class="rounded"
-        />
-        <br />
-        <h6 style="margin-top:30px;">Asking price:</h6>
-        <h2 class="text-success">{{listing.price}}</h2>
-        <h4 style="margin-top:30px;">Key Features</h4>
-        <p style="margin-top: 15px;">+ 5 star Ancap Safety Rating</p>
-        <p>+ Unlimted Kilometre Warranty</p>
-      </div>
-
-      <div class="col-sm-4" style="margin-top: 150px; margin-left: 60px;">
-        <h6>Current bid:</h6>
-        <h4 class="text-success">$30,999</h4>
-        <h6 class="text-warning" style="border-bottom: 1px solid darkgrey;">
-          Last offer made 14/09
-        </h6>
-        <form action="/action_page.php">
-          <div class="form-group">
-            <label for="amount">Make an Offer</label>
-            <input
-              type="text"
-              class="form-control"
-              id="bid"
-              placeholder="e.g. $45,300.00"
-            />
-          </div>
-          <a href="bid.html" type="submit" class="btn btn-primary">Submit</a>
-        </form>
-        <h5 style="margin-top: 40px;">Description</h5>
-        <p>
-          Up for sale is this 2014 Hyundai i30 SE with an automatic
-          transmission. One female owner with only 68,000kms on the odometer.
-          Comes complete with a full service history and all original books.
-          Comes with RWC and registration till February 2020
-        </p>
-
-        <p>
-          It has USB audio input, central locking, bluetooth technology and
-          front cup holders. Finally this hyundai i30 hatch has 16" alloy
-          wheels, rear parking sensors, iPod connectivity, front & rear power
-          windows, cruise control and storage compartment in centre console.
-        </p>
-      </div>
-    </div>
-  </div>
-</body>
- -->

@@ -21,27 +21,22 @@ content %}
   <body>
     <div class="container">
       <h3 style="margin-top: 20px;">Vehicle Make and Model</h3>
-      <h6>Describe the make and model of your vehicle.</h6>
       <form action="" method="POST" role="form">
                 {{ wtf.form_field(form.title, class='form-control', placeholder='Ford Falcon 2011') }}
         
       <h3 style="margin-top: 20px;">Image Upload</h3>
-      <h6>Upload an image of your vehicle.</h6>
+      <div class="form-group">
+          {{ wtf.form_field(form.image, class='form-control', placeholder='https://') }}
+  
+        </div>
 
       <h3 style="margin-top: 20px;">Category</h3>
       <div class="form-group" style="margin-top: 10px;">
-            {{ wtf.form_field(form.category, class='form-control') }}
+            {{ wtf.form_field(form.category, class='form-control', placeholder='Toyota') }}
 
       </div>
-      <!-- <form>
-        <div class="custom-file" style="margin-top: 10px;">
-          <input type="file" class="custom-file-input" id="customFile" />
-          <label class="custom-file-label" for="customFile">Choose file</label>
-        </div>
-      </form> -->
 
       <h3 style="margin-top: 20px;">Asking Price</h3>
-      <h6>Provide the asking price for your vehicle.</h6>
 
       <div class="form-group">
         {{ wtf.form_field(form.price, class='form-control', placeholder='$49,999') }}
@@ -49,7 +44,6 @@ content %}
       </div>
 
       <h3 style="margin-top: 20px;">Description</h3>
-      <h6>Describe your vehicle in detail.</h6>
       <div class="form-group" style="margin-top: 10px;">
             {{ wtf.form_field(form.description, class='form-control', cols="35", rows="10") }}
 

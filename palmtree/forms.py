@@ -31,10 +31,14 @@ class RegisterForm(FlaskForm):
 
 
 class ListingForm(FlaskForm):
-    title = StringField('Title', validators=[InputRequired()])
-    description = TextAreaField('Description',
+    title = StringField(
+        'Describe the make and model of your vehicle.', validators=[InputRequired()])
+    description = TextAreaField('Describe your vehicle in detail.',
                                 validators=[InputRequired(), Length(min=10, max=200)])
-    image = StringField('Image', validators=[InputRequired()])
-    category = StringField('Category', validators=[InputRequired()])
-    price = StringField('Price', validators=[InputRequired()])
+    image = StringField('Upload an image of your vehicle.',
+                        validators=[InputRequired()])
+    category = StringField('Select a relavent category',
+                           validators=[InputRequired()])
+    price = StringField(
+        'Provide the asking price for your vehicle.', validators=[InputRequired()])
     submit = SubmitField("Create")
