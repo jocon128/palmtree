@@ -63,4 +63,7 @@ def create_app():
     from . import manage
     app.register_blueprint(manage.bp)
 
+    from . import search
+    app.register_blueprint(search.bp)
+
     return app

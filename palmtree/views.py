@@ -5,10 +5,6 @@ from .models import Listing
 
 bp = Blueprint('main', __name__)
 
-
-
-
-
 @bp.route('/')
 def index():
     listings = Listing.query.all()
