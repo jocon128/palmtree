@@ -22,7 +22,7 @@ class User(db.Model, UserMixin):
 class Listing(db.Model):
     __tablename__ = 'listings'
     id = db.Column(db.Integer, primary_key=True)
-    description = db.Column(db.String(200))
+    description = db.Column(db.String(2000))
     title = db.Column(db.String(80))
     image = db.Column(db.String(400))
     price = db.Column(db.String(5))
